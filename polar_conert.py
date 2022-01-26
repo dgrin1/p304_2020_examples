@@ -5,7 +5,7 @@ from numpy import log, sin, cos, pi
 #overkill in python 2 which can read in floats but necessary in python 3 which reads everything as a string initially
 
 
-Read in r and theta values
+#Read in r and theta values
 r=float(input("What is the radius?"))
 th=float(input("What is the angle in degrees?"))
 #convert strings to floats
