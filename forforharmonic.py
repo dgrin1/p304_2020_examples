@@ -1,4 +1,4 @@
-i=0
+
 s=0.
 imax=int(input("What is N for this awesome harmonic sum?"))
 for i in range(1,imax+1):
