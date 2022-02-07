@@ -7,7 +7,7 @@ def gsin(x):
     #initialize iterator and sum
 	s,sold = 0.e0,0.e0
 
-    #Keep at most 10000 terms in the Taylor series
+    #Keep at most 1000 terms in the Taylor series
 	for i in range(1000):
 		sold = s
 		s += float((-1)**i * ((x**(2*i+1)))/float(math.factorial(2*i+1)))
