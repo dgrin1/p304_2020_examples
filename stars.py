@@ -1,3 +1,4 @@
+
 from __future__ import division,print_function
 from scipy import constants as sc
 from numpy import loadtxt,array,dot,sqrt,cos,sin,linspace,log
@@ -23,11 +24,13 @@ subs=range(0,nstarsm1,5)
 xsubs=x[subs]
 ysubs=y[subs]
 
-plt.scatter(xbetter,ybetter)
-plt.scatter(xsubs,ysubs,c="r")
+plt.plot(xbetter,ybetter, 'k^')
+#plt.errorbar(xbetter,ybetter,xerr=.0001,yerr=.0001, c= 'b')
+
+
 #sctter needs c=
-plt.show()
-plt.xlabel("Temperature in K")
+plt.show(block = True)
+plt.xlabel("Temperature in K", rc('font',**{'family':'sans-serif','sans-serif':['Helvetica']}))
 plt.ylabel("Magnitude")
 plt.xlim(0,13000)
 plt.ylim(-5,20)
