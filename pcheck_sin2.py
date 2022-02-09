@@ -3,7 +3,8 @@ import numpy as np
 #plt.ion only works in interactive mode
 plt.ion()
 plt.rc('text',usetex=True)
-plt.rc('font', family='serif')
+plt.rc('font', **{'family':'sans-serif','sans-serif':['Helvetica']})
+plt.rc('font', **{'family':'serif','serif':['Times New Roman']})
 
 x=np.linspace(0.0001,8*np.pi,100)
 y=np.abs(np.sin(x))
