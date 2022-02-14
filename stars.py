@@ -1,11 +1,13 @@
 
-from __future__ import division,print_function
 from scipy import constants as sc
 from numpy import loadtxt,array,dot,sqrt,cos,sin,linspace,log
 import numpy as np
 from math import pi
 
 import matplotlib.pyplot as plt
+import matplotlib
+matplotlib.rc('font',**{'family':'serif','serif':['Times New Roman']})
+matplotlib.rc('text', usetex=True)
 plt.ion()
 data=loadtxt("stars.txt",float)
 x=data[:,0]
@@ -29,8 +31,8 @@ plt.plot(xbetter,ybetter, 'k^')
 
 
 #sctter needs c=
-plt.show(block = True)
-plt.xlabel("Temperature in K", rc('font',**{'family':'sans-serif','sans-serif':['Helvetica']}))
+plt.xlabel("Temperature in K")
 plt.ylabel("Magnitude")
 plt.xlim(0,13000)
 plt.ylim(-5,20)
+plt.show(block = True)
