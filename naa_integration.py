@@ -1,3 +1,5 @@
+# Noah, Anthony and Nate integration class work
+
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.integrate as integrate
