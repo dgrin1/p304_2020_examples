@@ -2,6 +2,7 @@ import math
 
 def mySin(x):
     tolerance = 10**(-12)
+    x = x%(2*math.pi)
     sum = x
     n = 1
     err = abs(sum - math.sin(x)/sum)#math.sin(x)
@@ -24,5 +25,5 @@ def mySin(x):
         #print(err)
         #print(err)
     return sum
-#print(mySin(math.pi/16))
-#print(math.sin(math.pi/16))
+print(mySin(math.pi*16.5))
+print(math.sin(math.pi*16.5))
