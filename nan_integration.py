@@ -90,7 +90,7 @@ def problem1(N):
 def make_convergence_plot():
     a = 0
     b = 2
-    N_list = np.arange(10, 1002, 2)
+    N_list = np.arange(10, 1001, 1)
     trap_list = np.array([trape(a, b, f, N) for N in N_list])    # values of the integral
     simp_list = np.array([simpson(a, b, f, N) for N in N_list])
     error_trap = np.abs((trap_list - 4.4) / 4.4)
@@ -99,10 +99,12 @@ def make_convergence_plot():
     plt.plot(N_list, error_simp, label="Simpson's Error")
     plt.xscale('log')
     plt.yscale('log')
+    plt.xlabel("N slices in integral")
+    plt.ylabel("Relative Difference from Analytical value")
     plt.legend()
     plt.show()
     return 0
 
 if __name__ == "__main__":
-    # make_convergence_plot()
-    problem1(N=100)
+    make_convergence_plot()
+    # problem1(N=100)
