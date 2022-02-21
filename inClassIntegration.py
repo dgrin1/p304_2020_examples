@@ -7,8 +7,8 @@ from matplotlib import pyplot as plt
 #Set some values
 N=10
 
-a1=0
-b1=2
+a1=0.
+b1=2.
 
 a2=0
 b2=np.pi
@@ -54,21 +54,19 @@ print("the results for f2 are: \n riemann:",riemann2,"\n trapezoid:",trap2,"\n S
 
 #Riemann 1 plots
 
-reConvergErr = np.empty(0)  #tracks difference with exact
-reConverg = np.empty(0)  #tracks difference between N and 2N
+reConvergErr = np.empty(0)  #tracks error with exact
+reConverg = np.empty(0)  #tracks error between N and 2N
 
 for NN in range(10,1000):
-    reConvergErr = np.append(reConvergErr,((np.sum(f1(r1)[:-1])*(b1-a1)/NN)-((1/5)*2**5-(2/3)*2**3+2))/((1/5)*2**5-(2/3)*2**3+2))
-    reConverg = np.append(reConverg,((np.sum(f1(r1)[:-1])*(b1-a1)/(2*NN))-(np.sum(f1(r1)[:-1])*(b1-a1)/NN))/(np.sum(f1(r1)[:-1])*(b1-a1)/NN))
+    rr1 = np.linspace(a1, b1, NN + 1)
+    rr1doubleN = np.linspace(a1, b1, 2*NN + 1)
+    reConvergErr = np.append(reConvergErr,((np.sum(f1(rr1)[:-1])*(b1-a1)/NN)-((1/5)*2**5-(2/3)*2**3+2))/((1/5)*2**5-(2/3)*2**3+2))
+    reConverg = np.append(reConverg,((np.sum(f1(rr1doubleN)[:-1])*(b1-a1)/(2*NN))-(np.sum(f1(rr1)[:-1])*(b1-a1)/NN))/(np.sum(f1(rr1)[:-1])*(b1-a1)/NN))
 
 plt.figure()
 plt.plot(range(10,1000),reConvergErr)
-plt.xscale('log')
-plt.xscale('log')
-
-plt.figure()
 plt.plot(range(10,1000),reConverg)
 plt.xscale('log')
-plt.xscale('log')
+plt.yscale('log')
 
 plt.show()
