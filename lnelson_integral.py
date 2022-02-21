@@ -39,15 +39,22 @@ if __name__=="__main__":
     print(f'The Romberg integral from {a} to {b} is {sint.romberg(func,a,b)}')
 
     testgrid = np.logspace(1, 3, 50)
-    for method, label in ((l_riemann,'Riemann'), (trape,'Trapezoid'), (simps,'Simpson')):
-        output = np.array([method(a,b,func,int(N)) for N in testgrid])
-        print(label,abs(output-true_val))
-        print('Testgrid:',testgrid)
-        plt.plot(testgrid, abs(output-true_val), label=label)
-    plt.xscale('log')
-    plt.yscale('log')
-    plt.ylim(1e-13, 1)
-    plt.ylabel("Absolute error")
-    plt.xlabel("Number of points")
-    plt.legend()
+    abs_plot, abs_ax = plt.subplots()
+    rel_plot, rel_ax = plt.subplots()
+
+    for method, label in ((l_riemann, 'Riemann'), (trape, 'Trapezoid'), (simps, 'Simpson')):
+        output = np.array([method(a, b, func, int(N)) for N in testgrid])
+        double_output = np.array([method(a, b, func, int(2*N)) for N in testgrid])
+        print(label, abs(output-true_val))
+        # print('Testgrid:', testgrid)
+        abs_ax.plot(testgrid, abs(output-true_val)/true_val, label=label)
+        rel_ax.plot(testgrid, abs(double_output-output)/double_output, label=label)
+    abs_ax.set(xscale="log", yscale="log", ylabel="Fractional Error", xlabel="Number of points",
+               title="Error Relative to True Value")
+    abs_ax.legend()
+
+    rel_ax.set(xscale="log", yscale="log", ylabel="Fractional error", xlabel="Number of points",
+               title="Error Relative to 2N")
+    rel_ax.legend()
+
     plt.show()
