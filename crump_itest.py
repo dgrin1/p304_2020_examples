@@ -39,18 +39,35 @@ def simp(a,b,f,N):
 	I=(1/3)*h*((f(a)+f(b))+4*sumodd+2*sumeven)
 	return I
 
-#romb=integrate.romberg(f,a,b)
+romb=integrate.romberg(f,a,b)
 
-print(s,trape(a,b,f,N),simp(a,b,f,N),romb)
+print("Riemann:",s)
+print("Trapezoidal:",trape(a,b,f,N))
+print("Simpsons:",simp(a,b,f,N))
+print("Romberg:",romb)
 
 N=range(10,1000)
 
 trap=[]
+trap2N=[]
 
 for n in N:
 	t=trape(a,b,f,n)
-	trap.append(t)
+	ferror=abs((t-4.4)/4.4)
+	t2N=trape(a,b,f,2*n)
+	ferror2N=abs((t2N-t)/t2N)
+	trap.append(ferror)
+	trap2N.append(ferror2N)
 
-plt.plot(N,trap)
+
+plt.figure(1)
+plt.plot(N,trap, label="Using Exact Integral")
+plt.plot(N,trap2N, label="Using 2N Method")
+plt.xlabel("N")
+plt.ylabel("Fractional Error of Trapezoidal Method")
+plt.yscale('log')
+plt.xscale('log')
+plt.legend()
+
 
 plt.show()
