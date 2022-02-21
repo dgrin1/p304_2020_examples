@@ -1,8 +1,8 @@
 import matplotlib.pyplot as plt
 import numpy as np
 plt.rc('text',usetex=True)
-plt.rc('font', **{'family':'sans-serif','sans-serif':['Helvetica']})
-plt.rc('font', **{'family':'serif','serif':['Times New Roman']})
+plt.rc('font', family='sans-serif')
+#plt.rc('font', sans-serif='Tahoma')
 x=np.linspace(0,2*np.pi,100)
 y=np.sin(x)
 plt.ion()
@@ -13,3 +13,4 @@ plt.ylim([0,0.75])
 plt.ylabel(r'$\Delta h$')
 plt.title('Fun plotting example with oceans')
 plt.savefig('example.pdf')
+plt.show()
