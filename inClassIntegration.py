@@ -1,5 +1,8 @@
+'''August Muller'''
+
 import numpy as np
 from scipy import integrate
+from matplotlib import pyplot as plt
 
 #Set some values
 N=10
@@ -48,3 +51,24 @@ print("the results for f1 are: \n riemann:",riemann1,"\n trapezoid:",trap1,"\n S
 print("the results for f2 are: \n riemann:",riemann2,"\n trapezoid:",trap2,"\n Scipy quadrature:",quad2[0])
 
 #TODO: make plot
+
+#Riemann 1 plots
+
+reConvergErr = np.empty(0)  #tracks difference with exact
+reConverg = np.empty(0)  #tracks difference between N and 2N
+
+for NN in range(10,1000):
+    reConvergErr = np.append(reConvergErr,((np.sum(f1(r1)[:-1])*(b1-a1)/NN)-((1/5)*2**5-(2/3)*2**3+2))/((1/5)*2**5-(2/3)*2**3+2))
+    reConverg = np.append(reConverg,((np.sum(f1(r1)[:-1])*(b1-a1)/(2*NN))-(np.sum(f1(r1)[:-1])*(b1-a1)/NN))/(np.sum(f1(r1)[:-1])*(b1-a1)/NN))
+
+plt.figure()
+plt.plot(range(10,1000),reConvergErr)
+plt.xscale('log')
+plt.xscale('log')
+
+plt.figure()
+plt.plot(range(10,1000),reConverg)
+plt.xscale('log')
+plt.xscale('log')
+
+plt.show()
