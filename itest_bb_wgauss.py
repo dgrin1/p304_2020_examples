@@ -50,24 +50,46 @@ def trape(a,b,f,N):
 #compare with riemann sum, using both terms in thermal integral
 s=(trape(a,1,f,N)+trape(1/2,b,g,N))
 stefan=s*(constants.Boltzmann**4.e0)/(4.*(np.pi*constants.speed_of_light)**2.e0*(constants.hbar**3.))
-Nold=N
 N*=2
 s=(trape(a,1,f,N)+trape(1/2,b,g,N))
 stefan_better=s*(constants.Boltzmann**4.e0)/(4.*(np.pi*constants.speed_of_light)**2.e0*(constants.hbar**3.))
 error=(stefan_better-stefan)/stefan
-print(stefan,error)
+print(stefan,error,"simpson's rule with remapped infinity")
 
 #New stuff for gaussian integrals
-xvals,wp=gaussxwab(Nold,a,1)
+Ngauss=N
+
+#obtain weights and positions of points in first half of integral
+xvals,wp=gaussxwab(Ngauss,a,1)
 s=0
-for k in range(Nold):
+#sum them up
+for k in range(Ngauss):
     s += wp[k]*f(xvals[k])
-xvals,wp=gaussxwab(Nold,1/2,b)
+#obtain weights and positions of points in second half of integral
+
+xvals,wp=gaussxwab(Ngauss,1/2,b)
 #s = 0.0
-for k in range(Nold):
+#sum
+for k in range(Ngauss):
     s += wp[k]*g(xvals[k])
+#add two components of integral
+
+#print rest
 stefan_gauss=s*(constants.Boltzmann**4.e0)/(4.*(np.pi*constants.speed_of_light)**2.e0*(constants.hbar**3.))
-print(stefan_gauss)
+print(stefan_gauss,"My gauss")
+
+#this time with scipy gauss quad
+import scipy.integrate
+t1=scipy.integrate.fixed_quad(f, a, 1, n=Ngauss)
+t2=scipy.integrate.fixed_quad(g, 1/2, b, n=Ngauss)
+stefan_scipy_gauss=(t1[0]+t2[0])*(constants.Boltzmann**4.e0)/(4.*(np.pi*constants.speed_of_light)**2.e0*(constants.hbar**3.))
+print(stefan_scipy_gauss,"scipy Gaussian")
+#,s*(t1[1]+t2[1])*(constants.Boltzmann**4.e0)/(4.*(np.pi*constants.speed_of_light)**2.e0*(constants.hbar**3.)))
+
+t1=scipy.integrate.romberg(f, a, 1)
+t2=scipy.integrate.romberg(g, 1/2, b)
+stefan_scipy_romberg=(t1+t2)*(constants.Boltzmann**4.e0)/(4.*(np.pi*constants.speed_of_light)**2.e0*(constants.hbar**3.))
+print(stefan_scipy_romberg,"scipy Romberg")
 
 
 
