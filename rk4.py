@@ -7,7 +7,7 @@ def f(x,t):
 
 a = 0.0
 b = 10.0
-N = 10
+N = 100
 h = (b-a)/N
 
 tpoints = arange(a,b,h)
