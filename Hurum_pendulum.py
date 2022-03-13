@@ -32,7 +32,7 @@ for t in tpoints:
     k1rk2 = h*f(rk2,t)
     k2 = h*f(theta+0.5*k1,t+0.5*h)
     k2rk2 = h*f(rk2+0.5*k1,t+0.5*h)
-    rk2 +=(k1rk2+2*k2rk2)/6
+    rk2 +=(k2rk2)
     k3 = h*f(theta+0.5*k2,t+0.5*h)
     k4 = h*f(theta+k3,t+h)
     theta += (k1+2*k2+2*k3+k4)/6
