@@ -9,7 +9,7 @@ def f(x,t):
 #bounaries and lists
 a = 0.0
 b = 800000.0
-N = 40
+N = 4000
 h = (b-a)/N
 
 tpoints = arange(a,b,h)

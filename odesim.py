@@ -12,7 +12,7 @@ def f(r,t):
 
 a = 0.0
 b = 10.0
-N = 1000
+N = 10
 h = (b-a)/N
 
 tpoints = arange(a,b,h)

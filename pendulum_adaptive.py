@@ -19,7 +19,7 @@ def f(r,t):
 #Initial values and initial step size
 a = 0.0
 b = T*10
-N = 1000
+N = 10000
 h0 = (b-a)/N
 h=h0
 i=0

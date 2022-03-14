@@ -1,6 +1,6 @@
 from scipy import constants as constants
 import numpy as np
-from gaussxw import gaussxw,gaussxwab
+from gaussxw import gaussxw, gaussxwab
 
 #new gaussian integral stuff
 

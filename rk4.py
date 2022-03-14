@@ -23,6 +23,6 @@ for t in tpoints:
     x += (k1+2*k2+2*k3+k4)/6
 
 plot(tpoints,xpoints)
-xlabel("t")
-ylabel("x(t)")
+xlabel("theta")
+ylabel("y(t)")
 show()
