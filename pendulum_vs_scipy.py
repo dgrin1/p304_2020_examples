@@ -19,7 +19,7 @@ def f(r,t):
 
 a = 0.0
 b = T*20
-N = 100000
+N = 40
 h = (b-a)/N
 
 tpoints = arange(a,b,h)
