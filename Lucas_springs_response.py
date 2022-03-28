@@ -12,7 +12,7 @@ alpha = 2*k-m*omega*omega
 
 maxes = []
 omegas = []
-for omega in np.arange(0,3,0.05):
+for omega in np.arange(0, 3, 0.025):
     alpha = 2*k-m*omega*omega
     # Set up the initial values of the arrays
     A = zeros([N,N],float)
