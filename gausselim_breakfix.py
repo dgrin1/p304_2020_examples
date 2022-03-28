@@ -28,13 +28,13 @@ for m in range(N):
 
 	
 for m in range(N):
- 	div = A[m,m]
- 	A[m,:] /= div
- 	v[m] /= div
- 	for i in range(m+1,N):
-  		mult = A[i,m]
-  		v[i] -= mult*v[m]
-  		A[i,:] -= mult*A[m,:]
+	div = A[m,m]
+	A[m,:] /= div
+	v[m] /= div
+	for i in range(m+1,N):
+		mult = A[i,m]
+		v[i] -= mult*v[m]
+		A[i,:] -= mult*A[m,:]
 #   		
 #   		
 x = empty(N,float)
