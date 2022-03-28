@@ -71,9 +71,9 @@ while t<b: #condition on time
 	rho=30.*h*delta/abs(dx)
 #	print(t,rho,delta,h,dx,r1[0],r2[0])
 	#adjust step size
-	if rho>=1.0:
+	if rho>=1.0: # take a bigger step
 		t+=2*h
-		h*=min(rho**0.25,1.001)
+		h*=min(rho**0.25,1.001) 
 		r=r2
 		thetapoints.append(r[0])
 		omegapoints.append(r[1])
