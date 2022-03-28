@@ -6,7 +6,7 @@ N = 26
 C = 1.0
 m = 1.0
 k = 6.0
-omega = 4.9
+omega = 4.89
 alpha = 2*k-m*omega*omega
 
 # Set up the initial values of the arrays
