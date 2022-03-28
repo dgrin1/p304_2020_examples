@@ -1,4 +1,4 @@
-from numpy import array,arange,linspace
+from numpy import array,arange,linspace,logspace
 import matplotlib.pyplot as plt
 
 # Constants
@@ -12,7 +12,7 @@ k=1857 #N/m
 
 # Potential function
 def V(x):
-    V=(k*(x**2)/2)/(6.242e18)
+    V=(k*(x**2)/2)
     return V
 
 def f(r,x,E):
@@ -38,23 +38,31 @@ def solve(E):
 
     return r[0]
 
-Elist=linspace(1e-20,1e-18,100)
+Elist=linspace(0.1*e,1.1*e,100)
 roots=[]
 for E in Elist:
     root = solve(E)
     roots.append(root)
 
-plt.plot(Elist,roots)
+plt.plot(Elist/e,roots)
+plt.xlabel("Energy Level (eV)")
+plt.ylabel("Value of the Wavefunction on the Right Edge")
+plt.ylim(-1,1)
+
+
+E1 = 0.1*e
+E2 = 0.12*e
+for i in range(5):
+    if i>0:
+        E1,E2=E2+0.21*e,E2+0.25*e
+    # Main program to find the energy using the secant method
+    psi2 = solve(E1)
+
+    target = e/1000
+    while abs(E1-E2)>target:
+        psi1,psi2 = psi2,solve(E2)
+        E1,E2 = E2,E2-psi2*(E2-E1)/(psi2-psi1)
+
+    print("The",i,"Energy Level is E =",E2/e,"eV")
+
 plt.show()
-
-# Main program to find the energy using the secant method
-E1 = 0.0
-E2 = 1e-100
-psi2 = solve(E1)
-
-target = e/1000
-while abs(E1-E2)>target:
-    psi1,psi2 = psi2,solve(E2)
-    E1,E2 = E2,E2-psi2*(E2-E1)/(psi2-psi1)
-
-print("E =",E2/e,"eV")
