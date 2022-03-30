@@ -1,0 +1,197 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      5754,        187]
+NotebookOptionsPosition[      4841,        162]
+NotebookOutlinePosition[      5236,        178]
+CellTagsIndexPosition[      5193,        175]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"A", " ", "=", " ", 
+  RowBox[{
+   FractionBox["1", "a00"], 
+   RowBox[{"(", GridBox[{
+      {"1", "0", "0", "0"},
+      {
+       RowBox[{"-", "a10"}], "a00", "0", "0"},
+      {
+       RowBox[{"-", "a20"}], "0", "a00", "0"},
+      {
+       RowBox[{"-", "a30"}], "0", "0", "a00"}
+     }], ")"}]}]}]], "Input",
+ CellChangeTimes->{{3.857467217657641*^9, 3.857467218716016*^9}, {
+  3.857467460010119*^9, 3.8574676010130987`*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"dbe66955-841f-49a9-8d79-20ce3b392f0e"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     FractionBox["1", "a00"], ",", "0", ",", "0", ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", 
+      FractionBox["a10", "a00"]}], ",", "1", ",", "0", ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", 
+      FractionBox["a20", "a00"]}], ",", "0", ",", "1", ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", 
+      FractionBox["a30", "a00"]}], ",", "0", ",", "0", ",", "1"}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.857467602154995*^9},
+ CellLabel->"Out[1]=",ExpressionUUID->"5fa823b0-c8fa-439a-b4c1-7cc07e324a15"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"B", " ", "=", " ", 
+  RowBox[{"(", GridBox[{
+     {"a00", "a01", "a02", "a03"},
+     {"a10", "a11", "a12", "a13"},
+     {"a20", "a21", "a22", "a23"},
+     {"a30", "a31", "a32", "a33"}
+    }], ")"}]}]], "Input",
+ CellChangeTimes->{{3.857467603748159*^9, 3.857467692272792*^9}},
+ CellLabel->"In[2]:=",ExpressionUUID->"b23af3a1-854d-4de9-a77c-ecc0ca9e24db"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"a00", ",", "a01", ",", "a02", ",", "a03"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"a10", ",", "a11", ",", "a12", ",", "a13"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"a20", ",", "a21", ",", "a22", ",", "a23"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"a30", ",", "a31", ",", "a32", ",", "a33"}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.857467693583641*^9},
+ CellLabel->"Out[2]=",ExpressionUUID->"30d1fdf0-f16b-4d4f-bf2b-44dae3dc0318"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"MatrixForm", "[", 
+  RowBox[{"A", ".", "B"}], "]"}]], "Input",
+ CellChangeTimes->{{3.857467695202404*^9, 3.857467730528867*^9}},
+ CellLabel->"In[6]:=",ExpressionUUID->"3a810058-dbbf-48ab-a0be-a1db0dffa66b"],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {"1", 
+      FractionBox["a01", "a00"], 
+      FractionBox["a02", "a00"], 
+      FractionBox["a03", "a00"]},
+     {"0", 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox[
+         RowBox[{"a01", " ", "a10"}], "a00"]}], "+", "a11"}], 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox[
+         RowBox[{"a02", " ", "a10"}], "a00"]}], "+", "a12"}], 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox[
+         RowBox[{"a03", " ", "a10"}], "a00"]}], "+", "a13"}]},
+     {"0", 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox[
+         RowBox[{"a01", " ", "a20"}], "a00"]}], "+", "a21"}], 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox[
+         RowBox[{"a02", " ", "a20"}], "a00"]}], "+", "a22"}], 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox[
+         RowBox[{"a03", " ", "a20"}], "a00"]}], "+", "a23"}]},
+     {"0", 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox[
+         RowBox[{"a01", " ", "a30"}], "a00"]}], "+", "a31"}], 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox[
+         RowBox[{"a02", " ", "a30"}], "a00"]}], "+", "a32"}], 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox[
+         RowBox[{"a03", " ", "a30"}], "a00"]}], "+", "a33"}]}
+    },
+    GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{3.85746769698453*^9, 3.857467731311619*^9},
+ CellLabel->
+  "Out[6]//MatrixForm=",ExpressionUUID->"7bab9bcb-03dd-485c-9f53-\
+b09f4726e52e"]
+}, Open  ]]
+},
+WindowSize->{808, 747},
+WindowMargins->{{101, Automatic}, {-30, Automatic}},
+FrontEndVersion->"12.1 for Mac OS X x86 (64-bit) (June 19, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"78140333-d98a-4384-bc10-45683f6db9d7"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 526, 15, 79, "Input",ExpressionUUID->"dbe66955-841f-49a9-8d79-20ce3b392f0e"],
+Cell[1109, 39, 668, 20, 51, "Output",ExpressionUUID->"5fa823b0-c8fa-439a-b4c1-7cc07e324a15"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1814, 64, 378, 9, 79, "Input",ExpressionUUID->"b23af3a1-854d-4de9-a77c-ecc0ca9e24db"],
+Cell[2195, 75, 524, 13, 34, "Output",ExpressionUUID->"30d1fdf0-f16b-4d4f-bf2b-44dae3dc0318"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2756, 93, 230, 4, 30, "Input",ExpressionUUID->"3a810058-dbbf-48ab-a0be-a1db0dffa66b"],
+Cell[2989, 99, 1836, 60, 174, "Output",ExpressionUUID->"7bab9bcb-03dd-485c-9f53-b09f4726e52e"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
