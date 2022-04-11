@@ -38,6 +38,7 @@ def solve(E):
     return r[0]
 
 # Main program to find the energy using the secant method
+E_list = np.linspace(0,e,1000)
 root = np.linspace(0, e,1000)
 roots = [solve(r) for r in root]
 print(roots)
@@ -47,7 +48,7 @@ psi2 = solve(E1)
 #print(len(psi2))
 x_list = np.arange(0,L,h)
 # x = np.linspace(0,L, 1000)
-plt.plot(x_list,roots)
+plt.plot(E_list,roots)
 plt.show()
 
 target = e/1000
